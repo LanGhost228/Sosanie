@@ -1,14 +1,18 @@
 module Lib
-    ( someFunc,
-	ilososCat,
-	avg,
+    ( ilos
     ) where
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
 
-data Ilosos = G1 | G2 | G3 deriving (Show,Read)
-ilososCat :: [Float] -> Ilosos
-ilososCat x = G3
+data Ilo = 3 | 2 | 1 deriving Show
+ 
+ilos :: [Float] -> Ilo
+ilos x
+	|middle x < 0.50 = 3
+	|middle x < 0.75 = 2
+	|middle x <= 1.0 = 1
 
-avg x = sum x  / (fromIntegral $ length x)
+middle :: [Float] -> Float 
+middle y = sum y / (fromIntegral $ length y)
+
+leng [] = 0
+leng x = (leng $ tail x ) + 1
